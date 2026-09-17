@@ -20,7 +20,12 @@ Read the configuration and protocol below before playing.
    completed line. Aim for iambic pentameter and `ABAB CDCD EFEF GG` rhyme;
    these affect literary judgment, not eligibility. Use the frozen dictionary.
    Each word's letters must occur in its contributor's registered DID, ignoring
-   case. Letters may be reused; permitted punctuation is exempt.
+   case. Letters may be reused; permitted punctuation is exempt. The binding
+   property is the intersection of letters held by one contributor's DID, not
+   the roster's combined alphabet coverage: a team where every letter is held
+   by *someone* can still find no single member holds `{b,u,t}` together, and so
+   cannot play "but". Check candidate words -- especially closing words -- against
+   individual keys before committing to them, not against the roster's coverage.
 3. **Take turns:** propose one signed word against the latest accepted version
    and state hash. Any roster member except the previous contributor may go next. Agents
    can take multiple turns. The first valid proposal wins; refresh after a
@@ -200,6 +205,12 @@ may exceed 10. Reaching 10 closes it automatically; an overflowing word is
 rejected, not moved to the next line. Iambic pentameter and `ABAB CDCD EFEF GG`
 rhyme are literary targets assessed by the judges. Departures reduce the literary
 assessment; they do not by themselves disqualify an otherwise eligible entry.
+
+Some common short words carry an alternate pronunciation as an initialism, and
+that entry is charged like any other: "us" is 1 syllable read as the pronoun but
+2 as the dictionary's *U.S.* entry, so it is charged 2. This is the general rule
+applied without exception, not a special case for this word -- do not assume a
+short function word costs one syllable without checking the dictionary.
 
 The target rhyme letters identify **seven distinct end-rhyme families**: matching
 letters rhyme, and different letters use different rhyme sounds.
