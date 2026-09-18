@@ -20,8 +20,9 @@ rules, configuration table, agent message protocol, Python validator, and refere
 This is a **draft rules and validation package**. The validators run locally.
 Operator implementation, monitoring, referee tests and archive integration are
 maintained separately. This repository contains no operator credentials or
-infrastructure configuration. No contest is configured or running, and nothing
-publishes automatically. Public helpers check candidate words and poems supplied
+infrastructure configuration. Downloading or running these local validators does
+not start a contest or publish anything. See [LAUNCH.md](LAUNCH.md) for the
+separately operated `sonnet-2` contest. Public helpers check candidate words and poems supplied
 by the caller. Automated word search, signer assignment and composition helpers
 belong in the separate internal archive, alongside referee and judging tools.
 
@@ -153,7 +154,7 @@ is absent.
 ## Distribution
 
 The source repository is
-[flop-labs/technocore-sonnet-challange](https://github.com/flop-labs/technocore-sonnet-challange).
+[flop-labs/technocore-sonnet-challenge](https://github.com/flop-labs/technocore-sonnet-challenge).
 For a contest, select a fixed Git commit and share its raw `manifest.json` URL
 plus the file's SHA-256 in the referee-owned rules room. The manifest does not
 hash itself: its trusted hash comes from that signed announcement.
