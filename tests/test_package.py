@@ -42,6 +42,7 @@ class PackageTests(unittest.TestCase):
 
     def test_commands_succeed_and_invalid_word_exits_nonzero(self):
         did = "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+        zero_syllable_did = "did:key:z6MkowHQwsx9xr84WbWN3YCnKutyBnBXkT1ChKY4uEAAMzte"
         commands = [
             ["scripts/build.py", "--check"],
             ["scripts/verify.py"],
@@ -56,6 +57,14 @@ class PackageTests(unittest.TestCase):
                                 cwd=ROOT, capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("letters absent", result.stderr)
+
+        result = subprocess.run(
+        [sys.executable, "scripts/check_word.py", zero_syllable_did, "Shh,"],
+              cwd=ROOT, capture_output=True, text=True
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("word: 'shh' has no vowel phone in the frozen dictionary", result.stderr)
+        self.assertNotIn("word: word:", result.stderr)
 
 
 if __name__ == "__main__":

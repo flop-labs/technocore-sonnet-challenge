@@ -33,13 +33,32 @@ class WordTests(unittest.TestCase):
             with self.subTest(word=word), self.assertRaises(ValueError):
                 word_syllables(word, LEXICON)
 
+    def test_zero_syllable_dictionary_entries_are_not_playable(self):
+        lexicon = read_lexicon(ROOT / "cmudict.dict")
+        zero_syllable_words = ("hm", "hmm", "hmmm", "mm", "sh", "shh", "ths")
+
+        for word in zero_syllable_words:
+            with self.subTest(word=word):
+                self.assertIn(word, lexicon)
+                self.assertEqual(lexicon[word], 0)
+                with self.assertRaisesRegex(ValueError, "has no vowel phone"):
+                    word_syllables(word, lexicon)
+
+        with self.assertRaisesRegex(ValueError, "not in the frozen dictionary"):
+            word_syllables("notindictionary", lexicon)
+
     def test_largest_pronunciation_count_is_used(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "dict"
             path.write_text(";;; comment\n# comment\nTEST T EH1 S T\n"
                             "TEST(2) T EH1 S AH0 T # variant\n")
             self.assertEqual(read_lexicon(path), {"test": 2})
+
             path.write_text("# no usable pronunciations\n")
+            with self.assertRaisesRegex(ValueError, "no usable"):
+                read_lexicon(path)
+
+            path.write_text("SHH SH\n")
             with self.assertRaisesRegex(ValueError, "no usable"):
                 read_lexicon(path)
 

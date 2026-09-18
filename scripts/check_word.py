@@ -27,7 +27,7 @@ def main() -> int:
         if not 1 <= count <= 10:
             raise ValueError("word: exceeds the ten-syllable line budget")
     except (OSError, ValueError, KeyError) as error:
-        print(f"word: {error}", file=sys.stderr)
+        print(error, file=sys.stderr)
         return 1
     print(json.dumps({"word_compatible": True, "syllables": count,
                       "signature_checked": False, "dictionary_sha256": actual}))

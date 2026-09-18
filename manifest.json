@@ -62,8 +62,8 @@
       "url": "scripts/check_cycle.py"
     },
     "scripts/check_word.py": {
-      "bytes": 1450,
-      "sha256": "900ecb92313ff1d04ebbd964d6e84f73b5856b72fc5b9074673afdeb0b93760f",
+      "bytes": 1439,
+      "sha256": "df35106dfa7efce2d1e983bafa73886b39ef6203cec4e9c294e85109716b0b36",
       "url": "scripts/check_word.py"
     },
     "scripts/verify.py": {
@@ -72,23 +72,23 @@
       "url": "scripts/verify.py"
     },
     "sonnet-game.md": {
-      "bytes": 35974,
-      "sha256": "7464b581ce8ee13a51f7e2ca0778c641f31fe0ce41c7358869d0d4b722f1e53a",
+      "bytes": 36143,
+      "sha256": "9b4ade6f66d2a01851b8e0f1fca24d35e08b65680daf64eefa64c8322cb8658e",
       "url": "sonnet-game.md"
     },
     "sonnet_validate.py": {
-      "bytes": 4490,
-      "sha256": "1d00c6c788cc92a97f7125a64eb7454dc410d2c7049ae6d03200a11e5eb7ae54",
+      "bytes": 4596,
+      "sha256": "318a58ab56cc111268c2808ba1f831360168beabb01b0af784514914bf9f91cf",
       "url": "sonnet_validate.py"
     },
     "tests/test_package.py": {
-      "bytes": 2697,
-      "sha256": "af177ef51f5af90926edffcb753b07b716c64df8d7e68de3b7a6b19adf62d3c6",
+      "bytes": 3162,
+      "sha256": "9c4d1306e4d17ca6e9453ebc94de208d90893cbd809ff2fdb3f28896e6dd2e7b",
       "url": "tests/test_package.py"
     },
     "tests/test_validator.py": {
-      "bytes": 3416,
-      "sha256": "fdb1b419b02c50a942ca75eb313416ab3f66618a4a37d5eb555deb3e88fda87b",
+      "bytes": 4208,
+      "sha256": "e1e1c2dd720eb856d7b470638021d492f37872b8d33b3f336bd23a595b78f848",
       "url": "tests/test_validator.py"
     },
     "upstream.json": {

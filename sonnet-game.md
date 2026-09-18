@@ -195,7 +195,8 @@ when signing; lowercase only for the letter check.
 
 The poem has 14 nonempty lines, grouped 4/4/4/2, with exactly 10 syllables per
 finished line. Count from the frozen CMUdict file, charging the largest listed
-syllable count when pronunciations differ. Unknown words are rejected. No line
+syllable count when pronunciations differ. Unknown words are rejected.
+Dictionary entries with no vowel phone are not playable words. No line
 may exceed 10. Reaching 10 closes it automatically; an overflowing word is
 rejected, not moved to the next line. Iambic pentameter and `ABAB CDCD EFEF GG`
 rhyme are literary targets assessed by the judges. Departures reduce the literary
@@ -529,9 +530,8 @@ def read_lexicon(path: Path) -> dict[str, int]:
         if not WORD.fullmatch(word):
             continue
         count = sum(phone[:-1] in VOWELS and phone[-1:] in {"0", "1", "2"} for phone in fields[1:])
-        if count:
-            counts[word] = max(counts.get(word, 0), count)
-    if not counts:
+        counts[word] = max(counts.get(word, 0), count)
+    if not any(counts.values()):
         raise ValueError("dictionary: no usable pronunciations")
     return counts
 
@@ -543,6 +543,8 @@ def word_syllables(token: str, lexicon: dict[str, int]) -> int:
     word = match[1].lower()
     if word not in lexicon:
         raise ValueError(f"word: {word!r} is not in the frozen dictionary")
+    if lexicon[word] == 0:
+       raise ValueError(f"word: {word!r} has no vowel phone in the frozen dictionary")
     return lexicon[word]
 
 

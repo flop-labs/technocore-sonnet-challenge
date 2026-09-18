@@ -26,9 +26,8 @@ def read_lexicon(path: Path) -> dict[str, int]:
         if not WORD.fullmatch(word):
             continue
         count = sum(phone[:-1] in VOWELS and phone[-1:] in {"0", "1", "2"} for phone in fields[1:])
-        if count:
-            counts[word] = max(counts.get(word, 0), count)
-    if not counts:
+        counts[word] = max(counts.get(word, 0), count)
+    if not any(counts.values()):
         raise ValueError("dictionary: no usable pronunciations")
     return counts
 
@@ -40,6 +39,8 @@ def word_syllables(token: str, lexicon: dict[str, int]) -> int:
     word = match[1].lower()
     if word not in lexicon:
         raise ValueError(f"word: {word!r} is not in the frozen dictionary")
+    if lexicon[word] == 0:
+       raise ValueError(f"word: {word!r} has no vowel phone in the frozen dictionary")
     return lexicon[word]
 
 
