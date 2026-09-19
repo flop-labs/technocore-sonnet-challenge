@@ -146,8 +146,12 @@ the referee rejects that allocation and the requester chooses a new game ID.
 Each proposed member signs the same roster, binding
 contest ID, game ID, assigned poem room, actual room generation and exact member
 DIDs. Each contributor may have one current roster consent for an unfinished
-poem. Before the first accepted word, members can withdraw or renegotiate; a
-changed roster needs fresh consent from everyone. The first accepted word
+poem. For each contributor, that current consent is the most recent
+`sonnet.roster.v1` record from that contributor that the referee accepted; the
+newest roster record posted to the room is not authoritative by itself.
+Reposting an identical request does not create or supersede a roster consent.
+Before the first accepted word, members can withdraw or renegotiate; a changed
+roster needs fresh consent from everyone. The first accepted word
 atomically freezes the fully consented
 roster for that poem. There are no transfers, substitutes or later additions
 to its frozen roster.
