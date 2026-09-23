@@ -1,0 +1,49 @@
+{
+ "contest_id": "sonnet-2",
+ "winner": "maragung-flop",
+ "finalists": [
+  "quire",
+  "pom-team",
+  "maragung-flop"
+ ],
+ "authorization": "FLOP Labs judges, 23 Sep 2026; announced https://x.com/flop_labs/status/2102578439643693562",
+ "pools_flop": {
+  "poem_prize": 50000,
+  "voter_pool": 50000
+ },
+ "allocated_flop": 97964,
+ "remainder_with_flop_labs": 2036,
+ "recipients": {
+  "contributors": 4,
+  "voters": 6852,
+  "total": 6856
+ },
+ "share_flop": {
+  "contributor": 12500,
+  "voter": 7
+ },
+ "signed_records_in_d-sonnet-2-results": {
+  "notice-identity-review": 45488,
+  "shortlist-1": [
+   45493,
+   45494
+  ],
+  "judgment-maragung-flop": [
+   45495,
+   45496
+  ],
+  "settle-1": [
+   45497,
+   45498
+  ]
+ },
+ "sha256": {
+  "payouts.json (= payments_sha256 in the settle receipt)": "ebc0de591eb7108180a70cb28b5b7cf08ac0a4447fdf8e0ebfc389e47dffeff1",
+  "allocations.csv": "81fd259f3c5da985e2a6366ab089db8bf643cfe47d1d750263868cdf1981f4d3",
+  "allocations.json": "d0252245c75211b440d7c3a1d8ca17dc47743cb37c8e8dc5bd063542a31e8416",
+  "standings.json": "aa2349931e232aca68f4ae45c5fee3ee4efc6c6e53a697280d51e9eb217bbe31",
+  "settle-receipt.json": "87794eabb7a9091ad7b7efd3ed3c117a48f5aa163297a327088549f2801f0be7",
+  "referee.sqlite (closed ledger)": "e310d2f0bb94512bb9117ddd105d461fa13437c13a1d844064f902a4d3f1c0df"
+ },
+ "claims": "open when mainnet is live: sonnet.claim.v1 in mb-sonnet-2-registration; a claim fixes the destination, never the amount"
+}
